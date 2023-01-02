@@ -26,6 +26,7 @@ func main() {
 	}
 
 	app := fiber.New(fiber.Config{
+		BodyLimit:    2 * 1024 * 1024, // 2MB
 		ErrorHandler: utilities.ErrorHandler,
 	})
 
