@@ -5,4 +5,5 @@ type ResponseMessagesStruct struct {
 	InvalidData         string
 	MissingData         string
 	OK                  string
+	TooManyRequests     string
 }

@@ -4,12 +4,13 @@ go 1.18
 
 require (
 	github.com/gofiber/fiber/v2 v2.40.1
+	github.com/gofiber/helmet/v2 v2.2.22
 	github.com/joho/godotenv v1.4.0
+	github.com/julyskies/gohelpers v0.0.0-20210803104644-c71779c2e815
 )
 
 require (
 	github.com/andybalholm/brotli v1.0.4 // indirect
-	github.com/julyskies/gohelpers v0.0.0-20210803104644-c71779c2e815
 	github.com/klauspost/compress v1.15.9 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
