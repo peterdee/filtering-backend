@@ -6,6 +6,7 @@ require (
 	github.com/gofiber/fiber/v2 v2.40.1
 	github.com/gofiber/helmet/v2 v2.2.22
 	github.com/joho/godotenv v1.4.0
+  github.com/julyskies/brille v0.0.1
 	github.com/julyskies/gohelpers v0.0.0-20210803104644-c71779c2e815
 )
 
