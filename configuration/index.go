@@ -1,6 +1,6 @@
 package configuration
 
-// this should corellate with julyskies/brille
+// this should correlate with julyskies/brille
 var AVAILABLE_FILTERS = []string{
 	"binary",
 	"boxBlur",
@@ -27,11 +27,14 @@ const DEFAULT_ALLOWED_ORIGINS string = "http://localhost:3000"
 const DEFAULT_PORT string = "8910"
 
 var RESPONSE_MESSAGES = ResponseMessagesStruct{
-	InternalServerError: "INTERNAL_SERVER_ERROR",
-	InvalidData:         "INVALID_DATA",
-	InvalidFileFormat:   "INVALID_FILE_FORMAT",
-	InvalidFilterName:   "INVALID_FILTER_NAME",
-	MissingData:         "MISSING_DATA",
-	OK:                  "OK",
-	TooManyRequests:     "TOO_MANY_REQUESTS",
+	InternalServerError:   "INTERNAL_SERVER_ERROR",
+	InvalidFileFormat:     "INVALID_FILE_FORMAT",
+	InvalidFilterName:     "INVALID_FILTER_NAME",
+	InvalidGrayscaleType:  "INVALID_GRAYSCALE_TYPE",
+	InvalidThresholdValue: "INVALID_THRESHLOD_VALUE",
+	MissingFilterName:     "MISSING_FILTER_NAME",
+	MissingGrayscaleType:  "MISSING_GRAYSCALE_TYPE",
+	MissingThresholdValue: "MISSING_THRESHOLD_VALUE",
+	OK:                    "OK",
+	TooManyRequests:       "TOO_MANY_REQUESTS",
 }

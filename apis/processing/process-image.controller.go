@@ -21,7 +21,7 @@ func processImageController(context *fiber.Ctx) error {
 	if filter == "" {
 		return fiber.NewError(
 			fiber.StatusBadRequest,
-			configuration.RESPONSE_MESSAGES.MissingData,
+			configuration.RESPONSE_MESSAGES.MissingFilterName,
 		)
 	}
 	if !gohelpers.IncludesString(configuration.AVAILABLE_FILTERS, filter) {
@@ -57,14 +57,14 @@ func processImageController(context *fiber.Ctx) error {
 		if threshold == "" {
 			return fiber.NewError(
 				fiber.StatusBadRequest,
-				configuration.RESPONSE_MESSAGES.MissingData,
+				configuration.RESPONSE_MESSAGES.MissingThresholdValue,
 			)
 		}
 		convertedThreshold, convertationError := strconv.Atoi(threshold)
 		if convertationError != nil {
 			return fiber.NewError(
 				fiber.StatusBadRequest,
-				configuration.RESPONSE_MESSAGES.InvalidData,
+				configuration.RESPONSE_MESSAGES.InvalidThresholdValue,
 			)
 		}
 		result, format, processingError = brille.Binary(
@@ -74,23 +74,106 @@ func processImageController(context *fiber.Ctx) error {
 	}
 
 	if filter == "boxBlur" {
-		amount := context.FormValue("amount")
-		if amount == "" {
+		threshold := context.FormValue("threshold")
+		if threshold == "" {
 			return fiber.NewError(
 				fiber.StatusBadRequest,
-				configuration.RESPONSE_MESSAGES.MissingData,
+				configuration.RESPONSE_MESSAGES.MissingThresholdValue,
 			)
 		}
-		convertedAmount, convertationError := strconv.Atoi(amount)
+		convertedThreshold, convertationError := strconv.Atoi(threshold)
 		if convertationError != nil {
 			return fiber.NewError(
 				fiber.StatusBadRequest,
-				configuration.RESPONSE_MESSAGES.InvalidData,
+				configuration.RESPONSE_MESSAGES.InvalidThresholdValue,
 			)
 		}
 		result, format, processingError = brille.BoxBlur(
 			fileHandle,
-			uint(convertedAmount),
+			uint(convertedThreshold),
+		)
+	}
+
+	if filter == "brightness" {
+		threshold := context.FormValue("threshold")
+		if threshold == "" {
+			return fiber.NewError(
+				fiber.StatusBadRequest,
+				configuration.RESPONSE_MESSAGES.MissingThresholdValue,
+			)
+		}
+		convertedThreshold, convertationError := strconv.Atoi(threshold)
+		if convertationError != nil {
+			return fiber.NewError(
+				fiber.StatusBadRequest,
+				configuration.RESPONSE_MESSAGES.InvalidThresholdValue,
+			)
+		}
+		result, format, processingError = brille.Brightness(
+			fileHandle,
+			convertedThreshold,
+		)
+	}
+
+	if filter == "colorInversion" {
+		result, format, processingError = brille.ColorInversion(fileHandle)
+	}
+
+	if filter == "contrast" {
+		threshold := context.FormValue("threshold")
+		if threshold == "" {
+			return fiber.NewError(
+				fiber.StatusBadRequest,
+				configuration.RESPONSE_MESSAGES.MissingThresholdValue,
+			)
+		}
+		convertedThreshold, convertationError := strconv.Atoi(threshold)
+		if convertationError != nil {
+			return fiber.NewError(
+				fiber.StatusBadRequest,
+				configuration.RESPONSE_MESSAGES.InvalidThresholdValue,
+			)
+		}
+		result, format, processingError = brille.Contrast(
+			fileHandle,
+			convertedThreshold,
+		)
+	}
+
+	if filter == "eightColors" {
+		result, format, processingError = brille.EightColors(fileHandle)
+	}
+
+	if filter == "emboss" {
+		result, format, processingError = brille.EmbossFilter(fileHandle)
+	}
+
+	if filter == "flipHorizontal" {
+		result, format, processingError = brille.FlipHorizontal(fileHandle)
+	}
+
+	if filter == "flipVertical" {
+		result, format, processingError = brille.FlipVertical(fileHandle)
+	}
+
+	if filter == "gammaCorrection" {
+		threshold := context.FormValue("threshold")
+		if threshold == "" {
+			return fiber.NewError(
+				fiber.StatusBadRequest,
+				configuration.RESPONSE_MESSAGES.MissingThresholdValue,
+			)
+		}
+		convertedThreshold, convertationError := strconv.ParseFloat(threshold, 64)
+		if convertationError != nil {
+			return fiber.NewError(
+				fiber.StatusBadRequest,
+				configuration.RESPONSE_MESSAGES.InvalidThresholdValue,
+			)
+		}
+		result, format, processingError = brille.GammaCorrection(
+			fileHandle,
+			convertedThreshold,
 		)
 	}
 
@@ -99,14 +182,14 @@ func processImageController(context *fiber.Ctx) error {
 		if grayscaleType == "" {
 			return fiber.NewError(
 				fiber.StatusBadRequest,
-				configuration.RESPONSE_MESSAGES.MissingData,
+				configuration.RESPONSE_MESSAGES.MissingGrayscaleType,
 			)
 		}
 		if grayscaleType != brille.GRAYSCALE_AVERAGE &&
 			grayscaleType != brille.GRAYSCALE_LUMINOCITY {
 			return fiber.NewError(
 				fiber.StatusBadRequest,
-				configuration.RESPONSE_MESSAGES.InvalidData,
+				configuration.RESPONSE_MESSAGES.InvalidGrayscaleType,
 			)
 		}
 		result, format, processingError = brille.Grayscale(
@@ -144,14 +227,14 @@ func processImageController(context *fiber.Ctx) error {
 		if threshold == "" {
 			return fiber.NewError(
 				fiber.StatusBadRequest,
-				configuration.RESPONSE_MESSAGES.MissingData,
+				configuration.RESPONSE_MESSAGES.MissingThresholdValue,
 			)
 		}
 		convertedThreshold, convertationError := strconv.Atoi(threshold)
 		if convertationError != nil {
 			return fiber.NewError(
 				fiber.StatusBadRequest,
-				configuration.RESPONSE_MESSAGES.InvalidData,
+				configuration.RESPONSE_MESSAGES.InvalidThresholdValue,
 			)
 		}
 		result, format, processingError = brille.Solarize(
