@@ -30,8 +30,15 @@ func main() {
 		ErrorHandler: utilities.ErrorHandler,
 	})
 
+	allowedOrigins := os.Getenv("ALLOWED_ORIGINS")
+	if allowedOrigins == "" {
+		allowedOrigins = configuration.DEFAULT_ALLOWED_ORIGINS
+	}
+
 	app.Use(compress.New())
-	app.Use(cors.New())
+	app.Use(cors.New(cors.Config{
+		AllowOrigins: allowedOrigins,
+	}))
 	app.Use(favicon.New(favicon.Config{
 		File: "./assets/favicon.ico",
 	}))
