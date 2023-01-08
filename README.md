@@ -2,7 +2,7 @@
 
 ### Launch
 
-```golang
+```shell script
 go run ./
 ```
 
