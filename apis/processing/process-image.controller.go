@@ -198,6 +198,27 @@ func processImageController(context *fiber.Ctx) error {
 		)
 	}
 
+	if filter == "hueRotate" {
+		threshold := context.FormValue("threshold")
+		if threshold == "" {
+			return fiber.NewError(
+				fiber.StatusBadRequest,
+				configuration.RESPONSE_MESSAGES.MissingThresholdValue,
+			)
+		}
+		convertedThreshold, convertationError := strconv.Atoi(threshold)
+		if convertationError != nil {
+			return fiber.NewError(
+				fiber.StatusBadRequest,
+				configuration.RESPONSE_MESSAGES.InvalidThresholdValue,
+			)
+		}
+		result, format, processingError = brille.HueRotate(
+			fileHandle,
+			convertedThreshold,
+		)
+	}
+
 	if filter == "laplasian" {
 		result, format, processingError = brille.LaplasianFilter(fileHandle)
 	}

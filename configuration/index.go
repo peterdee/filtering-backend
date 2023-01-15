@@ -13,6 +13,7 @@ var AVAILABLE_FILTERS = []string{
 	"flipVertical",
 	"gammaCorrection",
 	"grayscale",
+	"hueRotate",
 	"laplasian",
 	"rotate90",
 	"rotate180",
