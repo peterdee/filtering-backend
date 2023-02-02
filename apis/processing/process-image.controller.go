@@ -219,6 +219,27 @@ func processImageController(context *fiber.Ctx) error {
 		)
 	}
 
+	if filter == "kuwahara" {
+		threshold := context.FormValue("threshold")
+		if threshold == "" {
+			return fiber.NewError(
+				fiber.StatusBadRequest,
+				configuration.RESPONSE_MESSAGES.MissingThresholdValue,
+			)
+		}
+		convertedThreshold, convertationError := strconv.Atoi(threshold)
+		if convertationError != nil {
+			return fiber.NewError(
+				fiber.StatusBadRequest,
+				configuration.RESPONSE_MESSAGES.InvalidThresholdValue,
+			)
+		}
+		result, format, processingError = brille.KuwaharaFilter(
+			fileHandle,
+			uint(convertedThreshold),
+		)
+	}
+
 	if filter == "laplasian" {
 		result, format, processingError = brille.LaplasianFilter(fileHandle)
 	}
@@ -237,6 +258,27 @@ func processImageController(context *fiber.Ctx) error {
 
 	if filter == "sepia" {
 		result, format, processingError = brille.Sepia(fileHandle)
+	}
+
+	if filter == "sharpen" {
+		threshold := context.FormValue("threshold")
+		if threshold == "" {
+			return fiber.NewError(
+				fiber.StatusBadRequest,
+				configuration.RESPONSE_MESSAGES.MissingThresholdValue,
+			)
+		}
+		convertedThreshold, convertationError := strconv.Atoi(threshold)
+		if convertationError != nil {
+			return fiber.NewError(
+				fiber.StatusBadRequest,
+				configuration.RESPONSE_MESSAGES.InvalidThresholdValue,
+			)
+		}
+		result, format, processingError = brille.SharpenFilter(
+			fileHandle,
+			uint(convertedThreshold),
+		)
 	}
 
 	if filter == "sobel" {

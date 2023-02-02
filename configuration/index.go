@@ -14,11 +14,13 @@ var AVAILABLE_FILTERS = []string{
 	"gammaCorrection",
 	"grayscale",
 	"hueRotate",
+	"kuwahara",
 	"laplasian",
 	"rotate90",
 	"rotate180",
 	"rotate270",
 	"sepia",
+	"sharpen",
 	"sobel",
 	"solarize",
 }

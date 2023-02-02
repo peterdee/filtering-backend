@@ -7,8 +7,8 @@ github.com/gofiber/helmet/v2 v2.2.22 h1:kACyVKnu3RpBmr0IomxwxwFzTLJuWllRCA5DQEmi
 github.com/gofiber/helmet/v2 v2.2.22/go.mod h1:8eDCsQ6XV+Ye41c+vQKyPQdG6NW9iQhlgdnwRIvp01M=
 github.com/joho/godotenv v1.4.0 h1:3l4+N6zfMWnkbPEXKng2o2/MR5mSwTrBih4ZEkkz1lg=
 github.com/joho/godotenv v1.4.0/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwAbqwq4=
-github.com/julyskies/brille v1.0.1 h1:iBWcL+/htXiWyOgtbcL+jvP1t3MBYXDLu1660iNtTp4=
-github.com/julyskies/brille v1.0.1/go.mod h1:uV87ohBiypsUeJYgx6f/s1wJ6SFV7efeL0Dqy/WtPps=
+github.com/julyskies/brille v1.0.2 h1:D12rO/Lagf+3grBG3h4XtznCDcfgBhuiSeyddODxQ+Y=
+github.com/julyskies/brille v1.0.2/go.mod h1:uV87ohBiypsUeJYgx6f/s1wJ6SFV7efeL0Dqy/WtPps=
 github.com/julyskies/gohelpers v0.0.0-20210803104644-c71779c2e815 h1:0aOf3C0pInLHOin1IIWKdUgDE7ZuOltC3qHYfSK0I7Q=
 github.com/julyskies/gohelpers v0.0.0-20210803104644-c71779c2e815/go.mod h1:mRmBL0Pa5lfszQZUVpbjNE7jlNLF/RwaJ5Jg3i/GK2Y=
 github.com/klauspost/compress v1.15.9/go.mod h1:PhcZ0MbTNciWF3rruxRgKxI5NkcHHrHUDtV4Yw2GlzU=
@@ -27,6 +27,7 @@ github.com/rivo/uniseg v0.4.3/go.mod h1:FN3SvrM+Zdj16jyLfmOkMNblXMcoc8DfTHruCPUc
 github.com/valyala/bytebufferpool v1.0.0 h1:GqA5TC/0021Y/b9FG4Oi9Mr3q7XYx6KllzawFIhcdPw=
 github.com/valyala/bytebufferpool v1.0.0/go.mod h1:6bBcMArwyJ5K/AmCkWv1jt77kVWyCJ6HpOuEn7z0Csc=
 github.com/valyala/fasthttp v1.41.0/go.mod h1:f6VbjjoI3z1NDOZOv17o6RvtRSWxC77seBFc2uWtgiY=
+github.com/valyala/fasthttp v1.43.0/go.mod h1:f6VbjjoI3z1NDOZOv17o6RvtRSWxC77seBFc2uWtgiY=
 github.com/valyala/fasthttp v1.44.0 h1:R+gLUhldIsfg1HokMuQjdQ5bh9nuXHPIfvkYUu9eR5Q=
 github.com/valyala/fasthttp v1.44.0/go.mod h1:f6VbjjoI3z1NDOZOv17o6RvtRSWxC77seBFc2uWtgiY=
 github.com/valyala/tcplisten v1.0.0 h1:rBHj/Xf+E1tRGZyWIWwJDiRY0zc1Js+CV5DqwacVSA8=
