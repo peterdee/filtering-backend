@@ -7,8 +7,8 @@ github.com/gofiber/helmet/v2 v2.2.22 h1:kACyVKnu3RpBmr0IomxwxwFzTLJuWllRCA5DQEmi
 github.com/gofiber/helmet/v2 v2.2.22/go.mod h1:8eDCsQ6XV+Ye41c+vQKyPQdG6NW9iQhlgdnwRIvp01M=
 github.com/joho/godotenv v1.4.0 h1:3l4+N6zfMWnkbPEXKng2o2/MR5mSwTrBih4ZEkkz1lg=
 github.com/joho/godotenv v1.4.0/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwAbqwq4=
-github.com/julyskies/brille v1.0.3 h1:uCWSxfVs0PGZFBjKPv6zj0eznsDoRn6zutENsX5skrg=
-github.com/julyskies/brille v1.0.3/go.mod h1:uV87ohBiypsUeJYgx6f/s1wJ6SFV7efeL0Dqy/WtPps=
+github.com/julyskies/brille/v2 v2.0.1 h1:tQkT2OliwbmZ/d3YHoTGMjHzMXg0aS1UjjAT5GJy4LE=
+github.com/julyskies/brille/v2 v2.0.1/go.mod h1:O+OcYRAWOzTpvhb3qDEIrOV9oc9wnSlV3NRnH9cs9O0=
 github.com/julyskies/gohelpers v0.0.0-20210803104644-c71779c2e815 h1:0aOf3C0pInLHOin1IIWKdUgDE7ZuOltC3qHYfSK0I7Q=
 github.com/julyskies/gohelpers v0.0.0-20210803104644-c71779c2e815/go.mod h1:mRmBL0Pa5lfszQZUVpbjNE7jlNLF/RwaJ5Jg3i/GK2Y=
 github.com/klauspost/compress v1.15.9/go.mod h1:PhcZ0MbTNciWF3rruxRgKxI5NkcHHrHUDtV4Yw2GlzU=
