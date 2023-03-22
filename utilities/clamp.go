@@ -1,6 +1,6 @@
 package utilities
 
-func Clamp(value, max, min int) int {
+func Clamp[T float64 | int | uint](value, max, min T) T {
 	if value > max {
 		return max
 	}
