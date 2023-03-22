@@ -11,6 +11,7 @@ var AVAILABLE_FILTERS = []string{
 	"emboss",
 	"flip",
 	"gammaCorrection",
+	"gaussianBlur",
 	"grayscale",
 	"hueRotate",
 	"kuwahara",

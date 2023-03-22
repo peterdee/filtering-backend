@@ -155,7 +155,7 @@ func processImageController(context *fiber.Ctx) error {
 		result, format, processingError = brille.Flip(fileHandle, direction)
 	}
 
-	if filter == "gammaCorrection" {
+	if filter == "gammaCorrection" || filter == "gaussianBlur" {
 		threshold := context.FormValue("threshold")
 		if threshold == "" {
 			return fiber.NewError(
@@ -170,10 +170,20 @@ func processImageController(context *fiber.Ctx) error {
 				configuration.RESPONSE_MESSAGES.InvalidThresholdValue,
 			)
 		}
-		result, format, processingError = brille.GammaCorrection(
-			fileHandle,
-			convertedThreshold,
-		)
+
+		if filter == "gammaCorrection" {
+			result, format, processingError = brille.GammaCorrection(
+				fileHandle,
+				convertedThreshold,
+			)
+		}
+
+		if filter == "gaussianBlur" {
+			result, format, processingError = brille.GaussianBlur(
+				fileHandle,
+				utilities.Clamp(convertedThreshold, 50, 0),
+			)
+		}
 	}
 
 	if filter == "grayscale" {
